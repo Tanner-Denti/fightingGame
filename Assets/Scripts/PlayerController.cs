@@ -33,56 +33,64 @@ namespace Scripts
 
             string playerOne = "playerOne";
             string playerTwo = "playerTwo";
+            Vector3 movementDirection = new Vector3(0,0,0);
+            Vector3 movementDirectionLeft = new Vector3(0,0,-1);
+            Vector3 movementDirectionRight = new Vector3(0,0,1);
+
 
 
            // Player 1 Movement (red) wasd
-           if (Input.GetKeyDown(KeyCode.W) && gameObject.name == playerOne && jumpCounter < 2)
+           if(gameObject.name == playerOne)
            {
-               rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-               jumpCounter++;
-           }
-           //haven't added movement direction. Will need to add functionality to drop through certain structures, otherwise just do a crouch animation. 
-           if (Input.GetKey(KeyCode.S) && gameObject.name == playerOne)
-           {
-               transform.Translate(new Vector3(0, 0, 0) * Time.deltaTime * speed);
-           }
+                if (Input.GetKeyDown(KeyCode.W) && jumpCounter < 2)
+                {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    jumpCounter++;
+                }
+                //haven't added movement direction. Will need to add functionality to drop through certain structures, otherwise just do a crouch animation. 
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(movementDirection * Time.deltaTime * speed);
+                }
 
-           if (Input.GetKey(KeyCode.A) && gameObject.name == playerOne)
-           {
-               transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed);
-            
-               
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Translate(movementDirectionLeft * Time.deltaTime * speed);
+                }
 
-           }
-
-           if (Input.GetKey(KeyCode.D) && gameObject.name == playerOne)
-           {
-               transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
-               
-
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Translate(movementDirectionRight * Time.deltaTime * speed);
+                }
            }
            
            // Player 2 Movement (green) arrow keys
-           if (Input.GetKeyDown(KeyCode.UpArrow) && gameObject.name == playerTwo && jumpCounter < 2)
+           if(gameObject.name == playerTwo)
            {
-               rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-               jumpCounter++;
-           }
-           //haven't added movement direction. Will need to add functionality to drop through certain structures, otherwise just do a crouch animation. 
-           if (Input.GetKey(KeyCode.DownArrow) && gameObject.name == playerTwo)
-           {
-               transform.Translate(new Vector3(0, 0, 0) * Time.deltaTime * speed);
+                if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCounter < 2)
+                {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    jumpCounter++;
+                }
+                //haven't added movement direction. Will need to add functionality to drop through certain structures, otherwise just do a crouch animation. 
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    transform.Translate(movementDirection * Time.deltaTime * speed);
+                }
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.Translate(movementDirectionRight * Time.deltaTime * speed);
+                }
+
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.Translate(movementDirectionLeft * Time.deltaTime * speed);
+                }
            }
 
-           if (Input.GetKey(KeyCode.LeftArrow) && gameObject.name == playerTwo)
-           {
-               transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
-           }
-
-           if (Input.GetKey(KeyCode.RightArrow) && gameObject.name == playerTwo)
-           {
-               transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed);
-           }
+        
+           
 
         }
 
