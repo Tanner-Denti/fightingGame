@@ -77,6 +77,5 @@ public class PlayerAnimation : MonoBehaviour
                 animator.SetBool("isJumping", false);
             }
         }
-        
     }
 }

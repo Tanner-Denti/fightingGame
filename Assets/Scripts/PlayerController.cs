@@ -8,7 +8,6 @@ namespace Scripts
     public class PlayerController : MonoBehaviour
     {
         private Rigidbody rb;
-        public Animator animator;
         private int speed = 7;
         private float jumpForce = 8.0f;
         private float gravityModifier = 1.5f;
@@ -17,7 +16,6 @@ namespace Scripts
         // Start is called before the first frame update
         void Start()
         {
-            animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody>();
             Physics.gravity *= gravityModifier;
         }
@@ -33,11 +31,10 @@ namespace Scripts
 
             string playerOne = "playerOne";
             string playerTwo = "playerTwo";
+
             Vector3 movementDirection = new Vector3(0,0,0);
             Vector3 movementDirectionLeft = new Vector3(0,0,-1);
             Vector3 movementDirectionRight = new Vector3(0,0,1);
-
-
 
            // Player 1 Movement (red) wasd
            if(gameObject.name == playerOne)
@@ -94,10 +91,6 @@ namespace Scripts
                     transform.Translate(movementDirectionRight * Time.deltaTime * speed);
                 }
            }
-
-        
-           
-
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -109,8 +102,6 @@ namespace Scripts
                jumpCounter = 0;
             }
         }
-
     }
-
 }
 
