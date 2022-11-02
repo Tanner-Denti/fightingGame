@@ -42,6 +42,7 @@ namespace Scripts
            // Player 1 Movement (red) wasd
            if(gameObject.name == playerOne)
            {
+                // Jump up
                 if (Input.GetKeyDown(KeyCode.W) && jumpCounter < 2)
                 {
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -52,14 +53,16 @@ namespace Scripts
                 {
                     transform.Translate(movementDirection * Time.deltaTime * speed);
                 }
-
+                // Move Left
                 if (Input.GetKey(KeyCode.A))
                 {
-                    transform.Translate(movementDirectionLeft * Time.deltaTime * speed);
+                    transform.rotation = Quaternion.LookRotation(new Vector3(-1,0,0));
+                    transform.Translate(movementDirectionRight * Time.deltaTime * speed);
                 }
-
+                // Move Right
                 if (Input.GetKey(KeyCode.D))
                 {
+                    transform.rotation = Quaternion.LookRotation(new Vector3(1,0,0));
                     transform.Translate(movementDirectionRight * Time.deltaTime * speed);
                 }
            }
@@ -67,6 +70,7 @@ namespace Scripts
            // Player 2 Movement (green) arrow keys
            if(gameObject.name == playerTwo)
            {
+                // Jump up
                 if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCounter < 2)
                 {
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -77,15 +81,17 @@ namespace Scripts
                 {
                     transform.Translate(movementDirection * Time.deltaTime * speed);
                 }
-
+                // Move Left
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
+                    transform.rotation = Quaternion.LookRotation(new Vector3(-1,0,0));
                     transform.Translate(movementDirectionRight * Time.deltaTime * speed);
                 }
-
+                // Move Right
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    transform.Translate(movementDirectionLeft * Time.deltaTime * speed);
+                    transform.rotation = Quaternion.LookRotation(new Vector3(1,0,0));
+                    transform.Translate(movementDirectionRight * Time.deltaTime * speed);
                 }
            }
 
