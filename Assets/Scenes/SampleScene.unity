@@ -1146,13 +1146,6 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8755548, z: 1}
-  m_Center: {x: -0, y: 0.89691174, z: 0}
---- !u!54 &1719975619
-Rigidbody:
->>>>>>> Stashed changes
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
 <<<<<<< Updated upstream
   m_Modification:
     m_TransformParent: {fileID: 0}
