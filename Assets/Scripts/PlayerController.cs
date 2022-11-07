@@ -8,7 +8,6 @@ namespace Scripts
     public class PlayerController : MonoBehaviour
     {
         private Rigidbody rb;
-        public Animator animator;
         private int speed = 7;
         private float jumpForce = 8.0f;
         private float gravityModifier = 1.5f;
@@ -17,7 +16,6 @@ namespace Scripts
         // Start is called before the first frame update
         void Start()
         {
-            animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody>();
             Physics.gravity *= gravityModifier;
         }
@@ -34,56 +32,65 @@ namespace Scripts
             string playerOne = "playerOne";
             string playerTwo = "playerTwo";
 
+            Vector3 movementDirection = new Vector3(0,0,0);
+            Vector3 movementDirectionLeft = new Vector3(0,0,-1);
+            Vector3 movementDirectionRight = new Vector3(0,0,1);
 
            // Player 1 Movement (red) wasd
-           if (Input.GetKeyDown(KeyCode.W) && gameObject.name == playerOne && jumpCounter < 2)
+           if(gameObject.name == playerOne)
            {
-               rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-               jumpCounter++;
-           }
-           //haven't added movement direction. Will need to add functionality to drop through certain structures, otherwise just do a crouch animation. 
-           if (Input.GetKey(KeyCode.S) && gameObject.name == playerOne)
-           {
-               transform.Translate(new Vector3(0, 0, 0) * Time.deltaTime * speed);
-           }
-
-           if (Input.GetKey(KeyCode.A) && gameObject.name == playerOne)
-           {
-               transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed);
-            
-               
-
-           }
-
-           if (Input.GetKey(KeyCode.D) && gameObject.name == playerOne)
-           {
-               transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
-               
-
+                // Jump up
+                if (Input.GetKeyDown(KeyCode.W) && jumpCounter < 2)
+                {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    jumpCounter++;
+                }
+                //haven't added movement direction. Will need to add functionality to drop through certain structures, otherwise just do a crouch animation. 
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(movementDirection * Time.deltaTime * speed);
+                }
+                // Move Left
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.rotation = Quaternion.LookRotation(new Vector3(-1,0,0));
+                    transform.Translate(movementDirectionRight * Time.deltaTime * speed);
+                }
+                // Move Right
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.rotation = Quaternion.LookRotation(new Vector3(1,0,0));
+                    transform.Translate(movementDirectionRight * Time.deltaTime * speed);
+                }
            }
            
            // Player 2 Movement (green) arrow keys
-           if (Input.GetKeyDown(KeyCode.UpArrow) && gameObject.name == playerTwo && jumpCounter < 2)
+           if(gameObject.name == playerTwo)
            {
-               rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-               jumpCounter++;
+                // Jump up
+                if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCounter < 2)
+                {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    jumpCounter++;
+                }
+                //haven't added movement direction. Will need to add functionality to drop through certain structures, otherwise just do a crouch animation. 
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    transform.Translate(movementDirection * Time.deltaTime * speed);
+                }
+                // Move Left
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.rotation = Quaternion.LookRotation(new Vector3(-1,0,0));
+                    transform.Translate(movementDirectionRight * Time.deltaTime * speed);
+                }
+                // Move Right
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.rotation = Quaternion.LookRotation(new Vector3(1,0,0));
+                    transform.Translate(movementDirectionRight * Time.deltaTime * speed);
+                }
            }
-           //haven't added movement direction. Will need to add functionality to drop through certain structures, otherwise just do a crouch animation. 
-           if (Input.GetKey(KeyCode.DownArrow) && gameObject.name == playerTwo)
-           {
-               transform.Translate(new Vector3(0, 0, 0) * Time.deltaTime * speed);
-           }
-
-           if (Input.GetKey(KeyCode.LeftArrow) && gameObject.name == playerTwo)
-           {
-               transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime * speed);
-           }
-
-           if (Input.GetKey(KeyCode.RightArrow) && gameObject.name == playerTwo)
-           {
-               transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * speed);
-           }
-
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -95,8 +102,6 @@ namespace Scripts
                jumpCounter = 0;
             }
         }
-
     }
-
 }
 
