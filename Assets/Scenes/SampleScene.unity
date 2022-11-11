@@ -546,7 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71b2a7539800894bac290ff99cb4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1311877148}
 --- !u!65 &1311877145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -626,7 +625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71b2a7539800894bac290ff99cb4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1311877148}
 --- !u!95 &1719975617
 Animator:
   serializedVersion: 4
