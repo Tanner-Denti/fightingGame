@@ -12,11 +12,27 @@ public class PlayerNetwork : NetworkBehaviour
     private float jumpForce = 8.0f;
     private float gravityModifier = 1.5f;
     private int jumpCounter = 0;
+    
+    [ServerRpc]
+    private void TestServerRpc() {
+        Debug.Log("TestServerRpc "+ OwnerClientId);
+    }
+
+    [ClientRpc]
+    private void TestClientRpc() {
+        Debug.Log("TestClientRpc "+ OwnerClientId);
+    }
 
     void Start()
         {
             rb = GetComponent<Rigidbody>();
             Physics.gravity *= gravityModifier;
+            if(IsClient && IsOwner)
+            {
+                transform.rotation = Quaternion.LookRotation(new Vector3(-1,0,0));
+                transform.position = new Vector3(Random.Range(-5, 5), 0, 0);
+
+            }
         }
     private void Update() {
         if (!IsOwner) return;
@@ -25,6 +41,10 @@ public class PlayerNetwork : NetworkBehaviour
             Vector3 movementDirectionLeft = new Vector3(0,0,-1);
             Vector3 movementDirectionRight = new Vector3(0,0,1);
         
+        if(Input.GetKeyDown(KeyCode.T)) {
+            TestClientRpc();
+        }
+
          if (Input.GetKeyDown(KeyCode.W) && jumpCounter < 2)
                 {
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);

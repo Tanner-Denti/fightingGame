@@ -29,6 +29,16 @@ public class NetworkAnimation : NetworkAnimator
 
         if(!IsOwner) return;
         {
+            // Jumping Animation
+            if(!isJumping && jumping)
+            {
+                animator.SetBool("isJumping", true);
+            }
+
+            if(isJumping && !jumping)
+            {
+                animator.SetBool("isJumping", false);
+            }
             // Sideways movement animations
             if(!isRunning && sideMovement)
             {
@@ -40,16 +50,7 @@ public class NetworkAnimation : NetworkAnimator
                 animator.SetBool("isRunning", false);
             }
 
-            // Jumping Animation
-            if(!isJumping && jumping)
-            {
-                animator.SetBool("isJumping", true);
-            }
-
-            if(isJumping && !jumping)
-            {
-                animator.SetBool("isJumping", false);
-            }
+            
         }
     }
 }
