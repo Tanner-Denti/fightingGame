@@ -8,20 +8,6 @@ public class Health : MonoBehaviour
 
     private int MAX_HEALTH = 100;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.X))
-        {
-            Damage(10);
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Heal(10);
-        }
-    }
-
     public void Damage(int amount)
     {
         if(amount < 0)

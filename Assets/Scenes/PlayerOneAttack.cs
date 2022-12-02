@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerOneAttack : MonoBehaviour
 {
-    private GameObject attackArea = default;
+    public GameObject attackArea = default;
 
-    private bool attacking = false;
+    public bool attacking = false;
 
-    private float timeToAttack = 0.25f;
-    private float timer = 0f;
+    public float timeToAttack = 0.25f;
+    public float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
