@@ -225,6 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnLocation: {x: 0, y: 0, z: 0}
+  Health: {fileID: -5153763876222610342}
+  Lives: 3
 --- !u!114 &-5153763876222610342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  MAX_HEALTH: 100
 --- !u!114 &4577655766431545282
 MonoBehaviour:
   m_ObjectHideFlags: 0
