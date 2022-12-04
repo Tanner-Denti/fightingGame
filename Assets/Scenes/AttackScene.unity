@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -548,7 +548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71b2a7539800894bac290ff99cb4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!65 &1311877145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -610,6 +609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc980c20cf27a64787e2ff50106d2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackArea: {fileID: 0}
+  attacking: 0
+  timeToAttack: 0.25
+  timer: 0
 --- !u!114 &1311877150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  MAX_HEALTH: 100
 --- !u!65 &1311877151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -636,6 +640,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.7, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1311877152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311877143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1de0eee06b384b4499fd89faf9cbaf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnLocation: {x: -2, y: 0.8, z: 0}
+  Health: {fileID: 1311877150}
+  Lives: 3
 --- !u!1 &1719975615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 41dc6ce28d5a7804db37ea66b87458ed, type: 3}
@@ -653,7 +672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71b2a7539800894bac290ff99cb4d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!95 &1719975617
 Animator:
   serializedVersion: 4
@@ -728,6 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  MAX_HEALTH: 100
 --- !u!65 &1719975622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -753,6 +772,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3470330cd25ed046aa064335c2f67a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1719975624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719975615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1de0eee06b384b4499fd89faf9cbaf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnLocation: {x: 2, y: 0.8, z: 0}
+  Health: {fileID: 1719975621}
+  Lives: 3
 --- !u!1 &1794862133
 GameObject:
   m_ObjectHideFlags: 0
