@@ -28,10 +28,11 @@ namespace Scripts
 
         void MovePlayer()
         {
-
+            // The GameObjects
             string playerOne = "playerOne";
             string playerTwo = "playerTwo";
 
+            // Different Movement for the player
             Vector3 movementDirection = new Vector3(0,0,0);
             Vector3 movementDirectionLeft = new Vector3(0,0,-1);
             Vector3 movementDirectionRight = new Vector3(0,0,1);
