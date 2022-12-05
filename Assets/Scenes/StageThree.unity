@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1674,6 +1674,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 124965572068315188, guid: 7820c82d6a92195469c1c928aaa97c49, type: 3}
+      propertyPath: Health
+      value: 
+      objectReference: {fileID: 618668488}
+    - target: {fileID: 124965572068315188, guid: 7820c82d6a92195469c1c928aaa97c49, type: 3}
       propertyPath: spawnLocation.x
       value: 4
       objectReference: {fileID: 0}
@@ -1766,6 +1770,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  MAX_HEALTH: 100
+--- !u!114 &618668488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5153763876222610342, guid: 7820c82d6a92195469c1c928aaa97c49, type: 3}
+  m_PrefabInstance: {fileID: 618668483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618668484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d5379a3133f8f4397de4659edcf522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &621224760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,6 +2503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  MAX_HEALTH: 100
 --- !u!114 &1048016684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2500,6 +2517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnLocation: {x: -4, y: 1.7, z: 0}
+  Health: {fileID: 1048016683}
+  Lives: 3
 --- !u!114 &1048016685
 MonoBehaviour:
   m_ObjectHideFlags: 0
