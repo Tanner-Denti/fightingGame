@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerOneAttack : MonoBehaviour
 {
     private GameObject attackArea = default;
-    private GameObject defendArea = default;
+    //private GameObject defendArea = default;
 
     private bool attacking = false;
 
-    private bool defending = false;
+    //private bool defending = false;
 
     private float timeToAttack = 0.25f;
     private float timer = 0f;
@@ -18,7 +18,7 @@ public class PlayerOneAttack : MonoBehaviour
     void Start()
     {
         attackArea = transform.GetChild(3).gameObject;
-        defendArea = transform.GetChild(4).gameObject;
+        //defendArea = transform.GetChild(4).gameObject;
     }
 
     // Update is called once per frame
@@ -29,14 +29,14 @@ public class PlayerOneAttack : MonoBehaviour
             Attack();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            Defend();
-        }
-        if(Input.GetKeyUp(KeyCode.Q))
-        {
-            defending = false;
-        }    
+        //if(Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    Defend();
+        //}
+        //if(Input.GetKeyUp(KeyCode.Q))
+        //{
+        //    defending = false;
+        //}    
 
         if(attacking)
         {
@@ -53,19 +53,19 @@ public class PlayerOneAttack : MonoBehaviour
     private void Attack()
     {
         attacking = true;
-        defending = false;
+        //defending = false;
         attackArea.SetActive(attacking);
     }
 
-    private void Defend()
-    {
-        defending = true;
-        attacking = false;
-        defendArea.SetActive(defending);
-    }
+    //private void Defend()
+    //{
+    //    defending = true;
+    //    attacking = false;
+    //    defendArea.SetActive(defending);
+    //}
 
-    public bool Defending
-    {
-        get { return defending; }
-    }
+    //public bool Defending
+    //{
+    //    get { return defending; }
+    //}
 }
