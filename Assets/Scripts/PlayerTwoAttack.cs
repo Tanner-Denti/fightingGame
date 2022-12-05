@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerTwoAttack : MonoBehaviour
 {
     private GameObject playerTwoAttackArea = default;
+    //private GameObject playerTwoDefendArea = default;
 
     private bool playerTwoAttacking = false;
+    //private bool playerTwoDefending = false;
 
     private float playerTwoTimeToAttack = 0.25f;
     private float playerTwotimer = 0f;
@@ -25,7 +27,16 @@ public class PlayerTwoAttack : MonoBehaviour
             PTwoAttack();
         }
 
-        if (playerTwoAttacking)
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    PTwoDefend();
+        //}
+        //if (Input.GetMouseButtonUp(1))
+        //{
+        //    playerTwoDefending = false;
+        //}
+
+            if (playerTwoAttacking)
         {
             playerTwotimer += Time.deltaTime;
 
@@ -42,4 +53,15 @@ public class PlayerTwoAttack : MonoBehaviour
         playerTwoAttacking = true;
         playerTwoAttackArea.SetActive(playerTwoAttacking);
     }
+    //private void PTwoDefend()
+    //{
+    //    playerTwoDefending = true;
+    //    playerTwoAttacking = false;
+    //    playerTwoDefendArea.SetActive(playerTwoDefending);
+    //}
+
+    //public bool PlayerTwoDefending
+    //{
+    //    get { return playerTwoDefending; }
+    //}
 }
