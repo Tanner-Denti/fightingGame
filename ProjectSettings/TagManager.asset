@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Platform
   - Border
+  - Interactable
+  - Obstacle
   layers:
   - Default
   - TransparentFX
