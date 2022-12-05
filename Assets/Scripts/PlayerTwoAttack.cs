@@ -18,6 +18,7 @@ public class PlayerTwoAttack : MonoBehaviour
     {
         playerTwoAttackArea = transform.GetChild(3).gameObject;
         playerTwoDefendArea = transform.GetChild(4).gameObject;
+
     }
 
     // Update is called once per frame
@@ -30,11 +31,11 @@ public class PlayerTwoAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            PTwoDefend();
+           PTwoDefend();
         }
         if (Input.GetMouseButtonUp(1))
         {
-            playerTwoDefending = false;
+           playerTwoDefending = false;
         }
 
         if (playerTwoAttacking)
@@ -52,17 +53,18 @@ public class PlayerTwoAttack : MonoBehaviour
     private void PTwoAttack()
     {
         playerTwoAttacking = true;
+        playerTwoDefending = false;
         playerTwoAttackArea.SetActive(playerTwoAttacking);
     }
     private void PTwoDefend()
     {
-        playerTwoDefending = true;
-        playerTwoAttacking = false;
-        playerTwoDefendArea.SetActive(playerTwoDefending);
+       playerTwoDefending = true;
+       playerTwoAttacking = false;
+       playerTwoDefendArea.SetActive(playerTwoDefending);
     }
 
     public bool PlayerTwoDefending
     {
-        get { return playerTwoDefending; }
+       get { return playerTwoDefending; }
     }
 }

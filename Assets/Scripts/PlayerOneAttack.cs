@@ -29,16 +29,16 @@ public class PlayerOneAttack : MonoBehaviour
             Attack();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
-            Defend();
+           Defend();
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        if(Input.GetKeyUp(KeyCode.Q))
         {
-            defending = false;
-        }
+           defending = false;
+        }    
 
-        if (attacking)
+        if(attacking)
         {
             timer += Time.deltaTime;
 
@@ -59,13 +59,13 @@ public class PlayerOneAttack : MonoBehaviour
 
     private void Defend()
     {
-        defending = true;
-        attacking = false;
-        defendArea.SetActive(defending);
+       defending = true;
+       attacking = false;
+       defendArea.SetActive(defending);
     }
 
     public bool Defending
     {
-        get { return defending; }
+       get { return defending; }
     }
 }
