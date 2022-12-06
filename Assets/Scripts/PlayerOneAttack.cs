@@ -12,6 +12,7 @@ public class PlayerOneAttack : MonoBehaviour
     private bool defending = false;
 
     private float timeToAttack = 0.25f;
+    private float timeToDefend = 0.25f;
     private float timer = 0f;
 
     // Start is called before the first frame update
@@ -24,11 +25,13 @@ public class PlayerOneAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Space to attack
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Attack();
         }
 
+        // Q to defend if Q is pressed
         if(Input.GetKeyDown(KeyCode.Q))
         {
            Defend();
@@ -38,6 +41,7 @@ public class PlayerOneAttack : MonoBehaviour
            defending = false;
         }    
 
+        // Attacking timer for 0.25 seconds
         if(attacking)
         {
             timer += Time.deltaTime;
@@ -47,6 +51,19 @@ public class PlayerOneAttack : MonoBehaviour
                 timer = 0;
                 attacking = false;
                 attackArea.SetActive(attacking);
+            }
+        }
+
+        // Defending timer for 0.25 seconds
+        if (defending)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= timeToDefend)
+            {
+                timer = 0;
+                defending = false;
+                defendArea.SetActive(defending);
             }
         }
     }

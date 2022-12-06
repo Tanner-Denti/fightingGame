@@ -11,6 +11,7 @@ public class PlayerTwoAttack : MonoBehaviour
     private bool playerTwoDefending = false;
 
     private float playerTwoTimeToAttack = 0.25f;
+    private float playerTwoTimeToDefend = 0.25f;
     private float playerTwotimer = 0f;
 
     // Start is called before the first frame update
@@ -47,6 +48,18 @@ public class PlayerTwoAttack : MonoBehaviour
                 playerTwotimer = 0;
                 playerTwoAttacking = false;
                 playerTwoAttackArea.SetActive(playerTwoAttacking);
+            }
+        }
+
+        if (playerTwoDefending)
+        {
+            playerTwotimer += Time.deltaTime;
+
+            if (playerTwotimer >= playerTwoTimeToDefend)
+            {
+                playerTwotimer = 0;
+                playerTwoDefending = false;
+                playerTwoDefendArea.SetActive(playerTwoDefending);
             }
         }
     }
