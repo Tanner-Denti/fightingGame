@@ -5,20 +5,20 @@ using UnityEngine;
 public class PlayerTwoAttack : MonoBehaviour
 {
     private GameObject playerTwoAttackArea = default;
-    private GameObject playerTwoDefendArea = default;
+    // private GameObject playerTwoDefendArea = default;
 
     private bool playerTwoAttacking = false;
-    private bool playerTwoDefending = false;
+    // private bool playerTwoDefending = false;
 
     private float playerTwoTimeToAttack = 0.25f;
-    private float playerTwoTimeToDefend = 0.25f;
+    // private float playerTwoTimeToDefend = 0.25f;
     private float playerTwotimer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         playerTwoAttackArea = transform.GetChild(3).gameObject;
-        playerTwoDefendArea = transform.GetChild(4).gameObject;
+        // playerTwoDefendArea = transform.GetChild(4).gameObject;
 
     }
 
@@ -30,14 +30,14 @@ public class PlayerTwoAttack : MonoBehaviour
             PTwoAttack();
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-           PTwoDefend();
-        }
-        if (Input.GetMouseButtonUp(1))
-        {
-           playerTwoDefending = false;
-        }
+        // if (Input.GetMouseButtonDown(1))
+        // {
+        //    PTwoDefend();
+        // }
+        // if (Input.GetMouseButtonUp(1))
+        // {
+        //    playerTwoDefending = false;
+        // }
 
         if (playerTwoAttacking)
         {
@@ -51,33 +51,33 @@ public class PlayerTwoAttack : MonoBehaviour
             }
         }
 
-        if (playerTwoDefending)
-        {
-            playerTwotimer += Time.deltaTime;
+        // if (playerTwoDefending)
+        // {
+        //     playerTwotimer += Time.deltaTime;
 
-            if (playerTwotimer >= playerTwoTimeToDefend)
-            {
-                playerTwotimer = 0;
-                playerTwoDefending = false;
-                playerTwoDefendArea.SetActive(playerTwoDefending);
-            }
-        }
+        //     if (playerTwotimer >= playerTwoTimeToDefend)
+        //     {
+        //         playerTwotimer = 0;
+        //         playerTwoDefending = false;
+        //         playerTwoDefendArea.SetActive(playerTwoDefending);
+        //     }
+        // }
     }
     private void PTwoAttack()
     {
         playerTwoAttacking = true;
-        playerTwoDefending = false;
+        // playerTwoDefending = false;
         playerTwoAttackArea.SetActive(playerTwoAttacking);
     }
-    private void PTwoDefend()
-    {
-       playerTwoDefending = true;
-       playerTwoAttacking = false;
-       playerTwoDefendArea.SetActive(playerTwoDefending);
-    }
+    // private void PTwoDefend()
+    // {
+    //    playerTwoDefending = true;
+    //    playerTwoAttacking = false;
+    //    playerTwoDefendArea.SetActive(playerTwoDefending);
+    // }
 
-    public bool PlayerTwoDefending
-    {
-       get { return playerTwoDefending; }
-    }
+    // public bool PlayerTwoDefending
+    // {
+    //    get { return playerTwoDefending; }
+    // }
 }
