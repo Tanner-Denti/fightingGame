@@ -43,6 +43,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        Physics.gravity = new Vector3(0, -9.8f, 0);
         Time.timeScale = 1f;
         SceneManager.LoadScene(menuScene);
     }

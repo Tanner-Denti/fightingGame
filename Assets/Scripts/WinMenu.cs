@@ -32,48 +32,30 @@ public class WinMenu : MonoBehaviour
         if (playerOne == null || playerTwo == null)
         {
             if(GameOver)
-            {
-                // Time.timeScale = 1f;      
+            {    
                 GameOver = false;
             }
             else{
                 Win();
             }
-            // Win();
         }
-        
-        // if (lives <= 0)
-        // {
-        //     if (GameOver)
-        //     {
-        //         PlayAgain();
-        //     }
-        //     else
-        //     {
-        //         Win();
-        //     }
-        // }
     }
 
     public void PlayAgain()
     {
-        // Time.timeScale = 1f;
-        // Debug.Log("Active Scene is '" + ActiveScene.name + "'.");
+        Physics.gravity = new Vector3(0, -9.8f, 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        // SceneManager.LoadScene("StageOne");
-
     }
 
     void Win()
     {
         WinMenuUI.SetActive(true);
-        // Time.timeScale = 0f;
         GameOver = true;
     }
 
     public void LoadMenu()
     {
-        // Time.timeScale = 1f;
+        Physics.gravity = new Vector3(0, -9.8f, 0);
         SceneManager.LoadScene(menuScene);
     }
     public void QuitGame()

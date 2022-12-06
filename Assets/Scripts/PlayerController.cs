@@ -18,6 +18,8 @@ namespace Scripts
         {
             rb = GetComponent<Rigidbody>();
             Physics.gravity *= gravityModifier;
+            // Physics.gravity = new Vector3(0, -9.8F, 0);
+
         }
 
         // Update is called once per frame
@@ -28,6 +30,8 @@ namespace Scripts
 
         void MovePlayer()
         {
+            // Physics.gravity = gravityModifier;
+
             // The GameObjects
             string playerOne = "playerOne";
             string playerTwo = "playerTwo";
