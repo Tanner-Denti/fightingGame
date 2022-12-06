@@ -16,8 +16,11 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // the gameObjects
         string playerOne = "playerOne";
         string playerTwo = "playerTwo";
+
+        // Player inputs
         bool sideMovement = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
         bool sideMovement2 = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow);
         bool jumping = Input.GetKey(KeyCode.W);
@@ -25,12 +28,13 @@ public class PlayerAnimation : MonoBehaviour
         bool attacking = Input.GetKey(KeyCode.Space);
         bool attacking2 = Input.GetMouseButtonDown(0);
 
-
+        // Animation variables
         bool isRunning = animator.GetBool("isRunning");
         bool isJumping = animator.GetBool("isJumping");
         bool isAttacking = animator.GetBool("isAttacking");
 
 
+        // Animations that affect player One
         if(gameObject.name == playerOne)
         {
             // Sideways movement animations
@@ -67,6 +71,7 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
 
+        // Animations that affect Player Two
         if(gameObject.name == playerTwo)
         {
             // Sideways movement animations
