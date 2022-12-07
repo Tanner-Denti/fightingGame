@@ -67,6 +67,9 @@ namespace Scripts
                     transform.rotation = Quaternion.LookRotation(new Vector3(1,0,0));
                     transform.Translate(movementDirectionRight * Time.deltaTime * speed);
                 }
+
+                
+
            }
            
            // Player 2 Movement (green) arrow keys
@@ -106,7 +109,37 @@ namespace Scripts
             {
                jumpCounter = 0;
             }
+
+            if (collision.gameObject.CompareTag("berserkPotion"))
+            {
+                speed = 11;
+                jumpForce = 11.0f;
+                Invoke("resetSpeed", 5);
+                Invoke("resetJump", 5);
+            }
+            if (collision.gameObject.CompareTag("fastPotion"))
+            {
+               speed = 9;
+               Invoke("resetSpeed", 7);
+            }
+            if (collision.gameObject.CompareTag("jumpPotion"))
+            {
+                jumpForce = 10.0f;
+                Invoke("resetJump", 6);
+            }
         }
+
+        void resetJump()
+        {
+            jumpForce = 8.0f;
+        }
+
+        void resetSpeed()
+        {
+            speed = 7;
+        }
+
+        
     }
 }
 

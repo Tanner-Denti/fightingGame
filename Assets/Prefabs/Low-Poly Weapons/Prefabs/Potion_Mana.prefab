@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -670275400639140563}
   m_Layer: 0
   m_Name: Potion_Mana
-  m_TagString: Untagged
+  m_TagString: jumpPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

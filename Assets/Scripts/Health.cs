@@ -46,6 +46,15 @@ public class Health : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("healthPotion"))
+        {
+            this.health += 15;   
+        }
+    }
+
+
     private void Die()
     {
         Debug.Log("I am Dead");

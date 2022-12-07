@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Platform
   - Border
+  - Obstacle
+  - berserkPotion
+  - fastPotion
+  - jumpPotion
+  - healthPotion
+  - DestroyBoundary
   layers:
   - Default
   - TransparentFX

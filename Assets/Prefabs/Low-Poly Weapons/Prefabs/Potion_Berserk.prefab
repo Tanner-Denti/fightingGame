@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1827969481334400216}
   m_Layer: 0
   m_Name: Potion_Berserk
-  m_TagString: Untagged
+  m_TagString: berserkPotion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
