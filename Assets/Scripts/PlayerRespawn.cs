@@ -5,20 +5,18 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
 
+    // a variable vector for the location that a player will spawn
     public Vector3 spawnLocation = new Vector3(0,0,0);
 
+    // Get the Health.cs script
     [SerializeField] Health Health;
+
+    // The amount of times a players health can get to or below 0
     public int Lives = 3;
    
-    // Start is called before the first frame update
-    void Start()
-    {
-        // health = GetComponent<Health>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        // If the Player gets less than or equal to 0 lives the player game object will be deleted
         Respawn();
         if( Lives <= 0)
         {
@@ -28,20 +26,19 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
         {
-            // TODO:
-            //  Change so this affect the player health
+            
+            // If the player enters this there health will equal 0
             if (other.gameObject.CompareTag("Border"))
             {
-            //    transform.position = spawnLocation;
-
                 Health.health = 0;
-
-
             }
         }
     
+    // If the players health is less than or equal to 0 the player will spawn at the location specified earlier
+    // There health will be reset
     private void Respawn()
     {
+
         if(Health?.health <= 0)
         {
             transform.position = spawnLocation;
@@ -50,6 +47,7 @@ public class PlayerRespawn : MonoBehaviour
         }
     }
 
+    // The Players game object gets deleted
     private void Die()
     {
         Debug.Log("I am Dead");

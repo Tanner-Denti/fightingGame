@@ -10,15 +10,15 @@ public class AttackArea : MonoBehaviour
     {
         Health health = collider.GetComponent<Health>();
 
-        if (collider.GetComponent<PlayerOneAttack>().Defending)
-        //  || collider.GetComponent<PlayerTwoAttack>().PlayerTwoDefending)
-        {
-            damage = 0;
-        //    return;
-        }
-        else {
-            damage = 25;
-        }
+        // if (collider.GetComponent<PlayerOneAttack>().Defending)
+        // //  || collider.GetComponent<PlayerTwoAttack>().PlayerTwoDefending)
+        // {
+        //     damage = 0;
+        // //    return;
+        // }
+        // else {
+        //     damage = 25;
+        // }
 
         if (collider.GetComponent<Health>() != null)
         {
