@@ -1152,10 +1152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc980c20cf27a64787e2ff50106d2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackArea: {fileID: 0}
-  attacking: 0
-  timeToAttack: 0.25
-  timer: 0
 --- !u!1 &3661194439953890183
 GameObject:
   m_ObjectHideFlags: 0
