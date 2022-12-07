@@ -223,7 +223,7 @@ namespace Scripts
 						transform.rotation = Quaternion.LookRotation(new Vector3(1,0,0));
 						transform.Translate(movementDirectionRight * Time.deltaTime * speed);
 					}
-					if(Input.GetKeyDown(KeyCode.Space))
+					if(Input.GetKeyDown(KeyCode.E))
 					{
 						if(_closest != null)
 						{
@@ -276,7 +276,7 @@ namespace Scripts
 						transform.rotation = Quaternion.LookRotation(new Vector3(1,0,0));
 						transform.Translate(movementDirectionRight * Time.deltaTime * speed);
 					}
-					if(Input.GetKeyDown(KeyCode.M))
+					if(Input.GetKeyDown(KeyCode.P))
 					{
 						if(_closest != null)
 						{
