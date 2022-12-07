@@ -12,23 +12,12 @@ public class WinMenu : MonoBehaviour
     public GameObject playerOne;
     public GameObject playerTwo;
 
-
-    // [SerializeField] PlayerRespawn respawn;
-
-    
-    // Scene ActiveScene = SceneManager.GetActiveScene();
-
     protected string menuScene = "TitleScene";
-    
-    // void Start()
-    // {
-    //     Scene ActiveScene = SceneManager.GetActiveScene().name;
-    // }
-
+ 
     // Update is called once per frame
     void Update()
     {
-        // lives = GameObject.GetComponent<PlayerRespawn>("playerOne").Lives;
+        // Checks to see if the gameObjects for the players are available
         if (playerOne == null || playerTwo == null)
         {
             if(GameOver)
@@ -41,23 +30,28 @@ public class WinMenu : MonoBehaviour
         }
     }
 
+    // Resets the scene
     public void PlayAgain()
     {
         Physics.gravity = new Vector3(0, -9.8f, 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // Pulls up a win menu
     void Win()
     {
         WinMenuUI.SetActive(true);
         GameOver = true;
     }
 
+    // Pulls up the main menu
     public void LoadMenu()
     {
         Physics.gravity = new Vector3(0, -9.8f, 0);
         SceneManager.LoadScene(menuScene);
     }
+
+    // Quits the game
     public void QuitGame()
     {
         Debug.Log("Quiting game...");
