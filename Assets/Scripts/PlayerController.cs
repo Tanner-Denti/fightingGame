@@ -22,23 +22,39 @@ namespace Scripts
 		public Transform rightHandIKVirtualBone, rightHandIKProgrammaticBone;
 		public GameObject selectionMarker;
 
+		[SerializeField]
 		private bool _inputActive = true;
+
+		[SerializeField]
 		private bool _needToGetCloser = false;
+
+		[SerializeField]
 		private float _currentSpeed;
+
+		[SerializeField]
 		private Transform _transform;
 		private GameObject[] _interactableObjects;
+
+		[SerializeField]
 		private Plane _forwardPlane;
 		private float _gazeMaxSqrDistance = 9f;
 		private float _interactSqrDistance = 1f;
+
+		[SerializeField]
 		public GameObject _closest;
+
+		[SerializeField]
 		private bool _wasLookingAtSomething = false;
+		[SerializeField]
 		private bool _isLookingAtSomething = false;
 		private Vector3 _destination;
 		private Vector3 _closingInDir;
-
 		public UnityAction GazeConnected, GazeDisconnected;
 
-		void Awake()
+
+		public Vector3 gazeposition;
+		public bool testvar;
+		private void Awake()
 		{
 			animator = GetComponent<Animator>();
 			_transform = GetComponent<Transform>();
@@ -68,7 +84,6 @@ namespace Scripts
 		{
 			//Orient and move the plane which limits the gaze
 				_forwardPlane.SetNormalAndPosition(_transform.forward, _transform.position);
-
 			//Head aim routine
 			if(_inputActive
 				&& _interactableObjects != null
@@ -78,8 +93,9 @@ namespace Scripts
 				float closestSqrDistance = Mathf.Infinity;
 				for(int i=0; i<_interactableObjects.Length; i++)
 				{
-					float sqrDistance = (_transform.position - _interactableObjects[i].transform.position).sqrMagnitude;
 					
+					float sqrDistance = (_transform.position - _interactableObjects[i].transform.position).sqrMagnitude;
+					testvar = _forwardPlane.GetSide(_interactableObjects[i].transform.position);
 					//If closer than the previous AND within gaze range AND on the right side of the plane
 					if(sqrDistance < closestSqrDistance
 						&& sqrDistance <= _gazeMaxSqrDistance
@@ -95,13 +111,11 @@ namespace Scripts
 				{
 					selectionMarker.SetActive(true);
 					_isLookingAtSomething = true;
-					GazeConnected.Invoke();
 				}
 				else if(_wasLookingAtSomething && _closest == null)
 				{
 					selectionMarker.SetActive(false);
 					_isLookingAtSomething = false;
-					GazeDisconnected.Invoke();
 				}
 
 			}
@@ -111,6 +125,7 @@ namespace Scripts
 			{
 				headMultiAim.weight = Mathf.Clamp01(headMultiAim.weight + Time.deltaTime * 5f);
 				gazeVirtualBone.position = _closest.transform.position; //follow the object if it's moving (or if the character is moving)
+				gazeposition = _closest.transform.position;
 				_wasLookingAtSomething = true;
 			}
 			else
@@ -261,7 +276,33 @@ namespace Scripts
 						transform.rotation = Quaternion.LookRotation(new Vector3(1,0,0));
 						transform.Translate(movementDirectionRight * Time.deltaTime * speed);
 					}
+					if(Input.GetKeyDown(KeyCode.M))
+					{
+						if(_closest != null)
+						{
+							_inputActive = false;
+							
+							_closingInDir = _closest.transform.position-_transform.position;
+							_closingInDir.y = 0f;
+							_destination = transform.position + _closingInDir;
+
+							if(Vector3.SqrMagnitude(_closingInDir) > _interactSqrDistance)
+							{
+								//need to get closer
+								if(_closingInDir.sqrMagnitude > 1f)
+								{
+									_closingInDir.Normalize();
+								}
+								_needToGetCloser = true;
+							}
+							else
+							{
+								PlayReachingAnimation();
+							}				
+							}
+					}
 			}
+			
 			}
 
 			private void OnCollisionEnter(Collision collision)
