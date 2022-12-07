@@ -29,6 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        // Gets out of the pause menu
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -36,6 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
+        // Loads the pause scene/screen
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -43,12 +45,14 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        // Goes back to the title screen
         Physics.gravity = new Vector3(0, -9.8f, 0);
         Time.timeScale = 1f;
         SceneManager.LoadScene(menuScene);
     }
     public void QuitGame()
     {
+        // Quits the game
         Debug.Log("Quiting game...");
         Application.Quit();
     }
