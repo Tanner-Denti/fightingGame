@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerOneAttack : MonoBehaviour
 {
-    private GameObject attackArea = default;
+    public GameObject playerOneAttackArea = default;
 
-    private bool attacking = false;
+    private bool playerOneAttacking = false;
 
-    private float timeToAttack = 0.25f;
-    private float timer = 0f;
+    private float playerOnetimeToAttack = 0.25f;
+    private float playerOnetimer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        attackArea = transform.GetChild(3).gameObject;
+        playerOneAttackArea = transform.GetChild(3).gameObject;
     }
 
     // Update is called once per frame
@@ -27,22 +27,22 @@ public class PlayerOneAttack : MonoBehaviour
         }
 
         // Attacking timer for 0.25 seconds
-        if(attacking)
+        if(playerOneAttacking)
         {
-            timer += Time.deltaTime;
+            playerOnetimer += Time.deltaTime;
 
-            if(timer >= timeToAttack)
+            if(playerOnetimer >= playerOnetimeToAttack)
             {
-                timer = 0;
-                attacking = false;
-                attackArea.SetActive(attacking);
+                playerOnetimer = 0;
+                playerOneAttacking = false;
+                playerOneAttackArea.SetActive(playerOneAttacking);
             }
         }
     }
     private void Attack()
     {
-        attacking = true;
-        attackArea.SetActive(attacking);
+        playerOneAttacking = true;
+        playerOneAttackArea.SetActive(playerOneAttacking);
     }
 
 }
