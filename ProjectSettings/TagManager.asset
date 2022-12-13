@@ -12,6 +12,7 @@ TagManager:
   - jumpPotion
   - healthPotion
   - DestroyBoundary
+  - Interactable
   layers:
   - Default
   - TransparentFX

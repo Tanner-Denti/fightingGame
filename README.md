@@ -1,12 +1,42 @@
-# Overview
-### FiteNite
+# FiteNite
 A Unity game where two players fight agianst each other in a brawler type game. Try to survive and win by damaging the other player and not falling off of the map. 
 
-In this two player game, Player One will use A, W, D, and space to attack while Player Two will use the arrow keys and clicks to attack. Navigate the menus by the mouse and clicking on the sections. The adjust the volume go to options on the main menu. You are able to select between three different stages that they players are able to move and jump around to fight each other. Each player has three lives to try and survive
+In this two player game, Player One will use A, W, D, and space to attack while Player Two will use the arrow keys and clicks to attack. Navigate the menus by the mouse and clicking on the sections. The adjust the volume go to options on the main menu.
 
-{If this is an online class, then provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running and a walkthrough of the code.}
+You are able to select between three different stages that they players are able to move and jump around to fight each other.
 
-[Software Demo Video](http://youtube.link.goes.here)
+## <font color="red"> Stage One </font>
+![Stage One](readme_files/stageone.png)
+
+## <font color="red"> Stage Two </font>
+![Stage Two](readme_files/stagetwo.png)
+
+## <font color="red"> Stage Three </font>
+![Stage Three](readme_files/stagethree.png)
+
+ Each player has three lives to try and survive. Objects will spawn into the game. Different potions can provide you with either Health or Higher Attack power 
+
+## <font color="Orange"> Different Potions</font>
+
+### <font color="red"> The Health Potion</font>
+The health poriton is a red p[otion that when you walk over it you heal 15 points.
+![Health](readme_files/Health.gif)
+
+### <font color="lightblue"> The Jump Potion</font>
+![Jump](readme_files/Jump.gif)
+Increases your jump height
+### <font color="green"> The Fast Potion</font>
+![Fast](readme_files/Fast.gif)
+Increases your move speed
+
+### <font color="purple"> The Berserk Potion</font>
+![Berserk](readme_files/Berserk.gif)
+Increases Both your move speed and jump height
+
+
+
+# Video Demo
+## [Software Demo Video](https://youtu.be/L5dg36mrsx4)
 
 # Development Environment
 

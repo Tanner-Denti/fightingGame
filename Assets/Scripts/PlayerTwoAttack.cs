@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerTwoAttack : MonoBehaviour
 {
-    private GameObject playerTwoAttackArea = default;
+    public GameObject playerTwoAttackArea = default;
 
     private bool playerTwoAttacking = false;
 

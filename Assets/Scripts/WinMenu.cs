@@ -54,7 +54,7 @@ public class WinMenu : MonoBehaviour
     // Quits the game
     public void QuitGame()
     {
-        Debug.Log("Quiting game...");
+        Debug.Log("Quitting game...");
         Application.Quit();
     }
 
